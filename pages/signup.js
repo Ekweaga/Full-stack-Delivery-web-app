@@ -1,7 +1,58 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Head from 'next/head'
+import Link from 'next/link';
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+import { auth } from '../Firebase/firbase';
 
 function signup() {
+  const [error, seterror] = useState(null);
+  const [success, setsuccess] = useState(null)
+  const [email,setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
+  const  signupUser = async (e)=>{
+    e.preventDefault();
+   // setLoading(true)
+
+    if(email === "" || password === ""){
+      seterror("Fields are empty")
+    
+  
+      //setLoading(false)
+    }
+    else if(password.length < 6){
+      seterror("Password characters must be greater than 6")
+      setsuccess(null)
+     // setLoading(false)
+    }
+   else{
+    try{
+       // setLoading(true)
+      await createUserWithEmailAndPassword(auth,email,password).then((response)=>{
+        console.log(response.user.refreshToken)
+        localStorage.setItem('token', JSON.stringify(response.user.refreshToken))
+       
+        
+      });
+     
+   //  setLoading(false)
+     setsuccess("Your Account is created successfully")
+        setEmail('')
+        setPassword('')
+        seterror(false)
+    // setTimeout(()=>{
+       // history.replace("/login")
+    // },1000)
+   }
+   catch(err){
+   seterror(err.message)
+   console.log(err)
+  // setLoading(false)
+   }
+   }
+
+}
   return (
     <>
      <Head>
@@ -13,12 +64,15 @@ function signup() {
 
 <div className="flex items-center justify-center flex-col">
 <img src="/Logo.png"/>
-  <form className="flex items-center justify-center flex-col">
+{error?(<div className='flex items-center justify-center text-red-600 border border-red-600  w-[300px] p-2 mt-[30px]'><p>{error}</p></div>):null}
+                    {success?(<div className=" flex items-center justify-center text-green-600 border border-green-600  w-[300px] mt-[30px] p-2"><p>{success}</p></div>):null}
+  <form className="flex items-center justify-center flex-col" onSubmit={signupUser}>
     <div className="m-[20px]"><h2 className="font-bold text-center text-2xl">SIGN UP</h2>
     <p className="text-center">Hello, Create an Account here</p>
     </div>
-    <div><input type="email" placeholder="info@gmail.com" className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2"/></div>
-    <div><input type="password" placeholder="*******"  className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2 mt-[20px]"/></div>
+    <div><input type="email" placeholder="info@gmail.com" className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2" onChange={(e)=>setEmail(e.target.value)} value={email}/></div>
+    <div><input type="password" placeholder="*******"  className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2 mt-[20px]" onChange={(e)=>setPassword(e.target.value)} value={password}/></div>
+    <div className="mt-[10px]"><p>Already have an account ? <Link href="/login" className="text-yellow-200">Log In</Link></p></div>
     <div><button  className="border-2 border-yellow-200 bg-yellow-200 mt-[20px] focus:outline-none w-[300px] p-2">Sign Up</button></div>
   </form>
 </div>
