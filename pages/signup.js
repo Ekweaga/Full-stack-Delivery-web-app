@@ -3,13 +3,14 @@ import Head from 'next/head'
 import Link from 'next/link';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import { auth } from '../Firebase/firbase';
+import {useRouter} from "next/router"
 
 function signup() {
   const [error, seterror] = useState(null);
   const [success, setsuccess] = useState(null)
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const router = useRouter()
 
   const  signupUser = async (e)=>{
     e.preventDefault();
@@ -41,9 +42,9 @@ function signup() {
         setEmail('')
         setPassword('')
         seterror(false)
-    // setTimeout(()=>{
-       // history.replace("/login")
-    // },1000)
+     setTimeout(()=>{
+        router.replace("/")
+   },500)
    }
    catch(err){
    seterror(err.message)

@@ -53,8 +53,8 @@ function Login() {
           <div className="m-[20px]"><h2 className="font-bold text-center text-2xl">SIGN IN</h2>
           <p className="text-center">Welcome back, <br/>please login to continue</p>
           </div>
-          <div><input type="email" placeholder="info@gmail.com" className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2"/></div>
-          <div><input type="password" placeholder="*******"  className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2 mt-[20px]"/></div>
+          <div><input type="email" placeholder="info@gmail.com" className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2" onChange={(e)=>setEmail(e.target.value)} value={email}/></div>
+          <div><input type="password" placeholder="*******"  className="border-2 border-yellow-200 focus:outline-none w-[300px] p-2 mt-[20px]"onChange={(e)=>setPassword(e.target.value)} value={password}/></div>
           <div className="mt-[10px]"><p>Dont have an account ? <Link href="/signup" className="text-yellow-200">Sign Up</Link></p></div>
           <div><button  className="border-2 border-yellow-200 bg-yellow-200 mt-[20px] focus:outline-none w-[300px] p-2">Log in</button></div>
         </form>

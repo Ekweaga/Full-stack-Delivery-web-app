@@ -2,18 +2,43 @@ import React,{useState} from 'react'
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {AiOutlineUserAdd} from "react-icons/ai"
 import Link from 'next/link'
-
-
+import { useContext } from 'react'
+import { AuthContext } from '../../Context/Contextapi'
+import {  signOut } from "firebase/auth";
+import {useRouter} from "next/router"
+import { onAuthStateChanged,getAuth } from "firebase/auth";
+import {auth} from "../../Firebase/firbase"
 function Navbar() {
   const [open,setOpen] = useState(false)
+  const {user} = useContext(AuthContext)
+  const router = useRouter()
+
+  const logout = async ()=>{
+   await signOut(auth)
+    localStorage.clear();
+    router.replace("/login")
+}
   return (
     <>
     <nav className="shadow h-[60px] flex justify-between items-center p-5">
       <Link href="/"><img src="/Logo.png" className="cursor-pointer"/></Link>
 
-      <div className="flex items-center justify-center mr-[100px] gap-[20px]"><Link href="/login"><img src='/log-in.png' className="cursor-pointer"/></Link>
-      <div> <AiOutlineShoppingCart/></div>
-      <img src={open ? "/Btn2.png":"/Btn1.png"} className="cursor-pointer w-[80px] mt-[20px]"   onClick={() => setOpen(!open)}/>
+      <div className="flex items-center justify-center mr-[100px] gap-[20px]">
+        {
+          user ? 
+          (
+           <> 
+            <button className="border-2 border-yellow-500 p-1" onClick={logout}>Sign Out</button>
+           <div> <AiOutlineShoppingCart/></div>
+            <img src={open ? "/Btn2.png":"/Btn1.png"} className="cursor-pointer w-[80px] mt-[20px]"   onClick={() => setOpen(!open)}/>
+           
+            </>
+          ) : ( <div className="flex gap-[25px] items-center justify-center">
+            <Link href="/login"><img src='/log-in.png' className="cursor-pointer"/></Link>
+            <button className="border-2 border-yellow-500 p-1" onClick={()=>router.replace("/signup")}>Sign Up</button>
+              </div>)
+        }
+       
      
       </div>
     </nav>
