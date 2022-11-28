@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from "next/image"
 
 
 
@@ -13,20 +14,20 @@ export default function Home() {
      <div className='header flex justify-between p-5 flex-col md:flex-row'>
       <div className="mt-[60px] p-4">
         <h1 className=" text-6xl">Your Food Court at home</h1>
-        <div className="flex gap-[35px] mt-[100px]"><img src="/Button.png"/><img src="/Button (1).png"/></div>
+        <div className="flex gap-[35px] mt-[100px]"><Image src="/Button.png"  width={100} height={100} alt="btn"/><Image src="/Button (1).png" width={100} height={100} alt="btn"/></div>
       </div>
-      <div><img src="/Photo.png" alt="Photo"/></div>
+      <div><Image src="/Photo.png" alt="Photo" width={800} height={700}/></div>
      </div>
      <div>
-      <img src="/USP.png"/>
+      <Image src="/USP.png" alt="Photo" width={900} height={200}/>
      </div>
      <div className="restaurantContainer">
      <h3 className="font-bold p-3">Restaurants</h3>
-      <div className='flex flex-col md:flex-row'>
-      <img src="/restaurant.png" alt="restaurant"/>
-      <img src="/restaurant1.png" alt="restaurant"/>
-      <img src="/restaurant2.png" alt="restaurant"/>
-      <img src="/restaurant3.png" alt="restaurant"/>
+      <div className='flex flex-col md:flex-row gap-[40px]'>
+      <Image src="/restaurant.png" alt="restaurant"  width={300} height={400}/>
+      <Image src="/restaurant1.png" alt="restaurant"  width={300} height={400}/>
+      <Image src="/restaurant2.png" alt="restaurant"  width={300} height={400}/>
+      <Image src="/restaurant3.png" alt="restaurant"  width={300} height={400}/>
       </div>
      
      </div>
@@ -49,43 +50,43 @@ export default function Home() {
 
      </div>
 
-     <div className="specials ">
-      <h3 className="font-bold p-3">Specialities</h3>
+     <div className="specials flex flex-col gap-[20px] mt-[50px] mb-[50px] ">
+      <h3 className="font-bold p-3 ml-[30px]">Specialities</h3>
       <div className="flex md:w-[90%] mx-auto flex-col md:flex-row-reverse">
-      <img src="/Frame 29.png" alt="restaurant"/>
-      <img src="/Frame 30.png" alt="restaurant"/>
-      <img src="/Frame 31.png" alt="restaurant"/>
-      <img src="/Frame 32.png" alt="restaurant"/>
-      <img src="/Frame 33.png" alt="restaurant"/>
-      <img src="/Frame 34.png" alt="restaurant"/>
-      <img src="/Frame 35.png" alt="restaurant"/>
+      <Image src="/Frame 29.png" alt="restaurant" width={350} height={250} />
+      <Image src="/Frame 30.png" alt="restaurant"  width={350} height={250} />
+      <Image src="/Frame 31.png" alt="restaurant"  width={350} height={250}/>
+      <Image src="/Frame 32.png" alt="restaurant"  width={350} height={250} />
+      <Image src="/Frame 33.png" alt="restaurant"  width={350} height={250} />
+      <Image src="/Frame 34.png" alt="restaurant"  width={350} height={250} />
+      <Image src="/Frame 35.png" alt="restaurant"  width={350} height={250} />
       </div>
      
      </div>
 
-     <div className="categories md:h-[300px] flex items-center justify-center p-5" style={{background:'url("/bg.png")',backgroundSize:'cover',backgroundRepeat:'none'}}>
+     <div className="categories md:h-[300px] flex items-center justify-center p-5 " style={{background:'url("/bg.png")',backgroundSize:'cover',backgroundRepeat:'none'}}>
 
       <div className="flex w-[60%] mx-auto flex-col md:flex-row">
-      <img src="/Component 7.png" alt="restaurant"/>
-      <img src="/Component 8.png" alt="restaurant"/>
-      <img src="/Component 9.png" alt="restaurant"/>
-      <img src="/Component 10.png" alt="restaurant"/>
+      <Image src="/Component 7.png" alt="restaurant"  width={350} height={300}/>
+      <Image src="/Component 8.png" alt="restaurant"  width={350} height={300}/>
+      <Image src="/Component 9.png" alt="restaurant"  width={300} height={300}/>
+      <Image src="/Component 10.png" alt="restaurant"  width={300} height={300}/>
       </div>
 
 
      </div>
 
      <div className="w-[90%] mx-auto mt-[40px] mb-[40px]">
-      <img src="/Map.png" alt="map"/>
+      <Image src="/Map.png" alt="map" width={1500} height={700}/>
      </div>
       
-     <div className="md:p-4">
-      <h3 className='text-2xl'>#YellowKitchens <span className='text-[#E3E4E8]'>in Instagram</span></h3>
-      <div className='flex items-center justify-around mt-[20px] flex-col md:flex-row gap-[20px] md:gap-0'>
-      <img src="/Rectangle 13.png" alt="restaurant"/>
-     <img src="/Rectangle 10.png" alt="restaurant"/>
-     <img src="/Rectangle 11.png" alt="restaurant"/>
-     <img src="/Rectangle 12.png" alt="restaurant"/>
+     <div className="md:p-4 mb-[50px]">
+      <h3 className='text-2xl ml-[20px] md:ml-0'>#YellowKitchens <span className='text-[#E3E4E8]'>in Instagram</span></h3>
+      <div className='flex items-center justify-around mt-[20px] flex-col md:flex-row gap-[20px] md:gap-[20px]'>
+      <Image src="/Rectangle 13.png" alt="restaurant" width={350} height={300}/>
+     <Image src="/Rectangle 10.png" alt="restaurant" width={350} height={300}/>
+     <Image src="/Rectangle 11.png" alt="restaurant" width={350} height={300}/>
+     <Image src="/Rectangle 12.png" alt="restaurant" width={350} height={300}/>
       </div>
    
      </div>

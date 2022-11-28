@@ -2,12 +2,14 @@ import React,{useState} from 'react'
 import Head from 'next/head'
 import Link from "next/Link"
 import { signInWithEmailAndPassword} from 'firebase/auth';
+import { auth } from '../Firebase/firbase';
 
 function Login() {
   const [error, seterror] = useState(null);
   const [success, setsuccess] = useState(null)
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
+  
 
   const  login = async (e)=>{
     e.preventDefault();

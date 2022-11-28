@@ -4,8 +4,9 @@ import Link from 'next/link';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import { auth } from '../Firebase/firbase';
 import {useRouter} from "next/router"
+import Image from "next/image"
 
-function signup() {
+function Signup() {
   const [error, seterror] = useState(null);
   const [success, setsuccess] = useState(null)
   const [email,setEmail] = useState('')
@@ -64,7 +65,7 @@ function signup() {
      <div className="h-screen flex items-center justify-center">
 
 <div className="flex items-center justify-center flex-col">
-<img src="/Logo.png"/>
+<Image src="/Logo.png" alt="logo" width={200} height={50}/>
 {error?(<div className='flex items-center justify-center text-red-600 border border-red-600  w-[300px] p-2 mt-[30px]'><p>{error}</p></div>):null}
                     {success?(<div className=" flex items-center justify-center text-green-600 border border-green-600  w-[300px] mt-[30px] p-2"><p>{success}</p></div>):null}
   <form className="flex items-center justify-center flex-col" onSubmit={signupUser}>
@@ -84,4 +85,4 @@ function signup() {
   )
 }
 
-export default signup
+export default Signup

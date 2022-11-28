@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
     <footer className='bg-[#3F4255]  text-white  py-[60px] '>
-      <div className="grid grid-cols-4 gap-[10px]  w-[80%] mx-auto"> 
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-[30px]  w-[80%] mx-auto"> 
         
         <div>
         <img src="/Logo1.png"/>

@@ -2,8 +2,12 @@ import React from 'react'
 import Head from 'next/head'
 import {AiOutlineArrowRight} from 'react-icons/ai'
 import {DataItem} from "../data.js"
+import { connect } from 'react-redux';
+import {useDispatch} from 'react-redux'
+import { cartActions } from '../Redux/store/cartslice';
 
-function menu() {
+function Menu() {
+  const dispatch = useDispatch()
   return (
     <>
     <Head>
@@ -16,10 +20,10 @@ function menu() {
   <header className="grid grid-cols-2 items-center h-[100vh] ">
     <div className='header-content'>
         
-        <div className='content-main flex flex-col items-center justify-center'>
+        <div className='content-main flex flex-col p-4 md:ml-[100px]'>
             <h1 className="font-bold text-2xl mb-[20px]">Delicious food for your cravings</h1>
-            <p>We made fresh and healthy meals with different recipes</p>
-            <button className="flex items-center justify-center gap-[20px] bg-yellow-200 w-[250px] p-2 mt-[30px]" >View Menu <AiOutlineArrowRight/></button>
+            <p className="md:w-[300px]">We made fresh and healthy meals with different recipes</p>
+            <button className="flex items-center justify-center gap-[20px] bg-yellow-200 w-[200px] p-2 mt-[30px]" >View Menu <AiOutlineArrowRight/></button>
         </div>
     </div>
     <img src="/f13.jpeg" className='header-img w-[380px] rounded-full align-center'/>
@@ -42,8 +46,8 @@ function menu() {
                         </div>
 
                         <div className="flex justify-between items-center gap-[40px]">
-                            <button className="font-bold text-2xl">+</button>
-                            <button className="font-bold text-2xl">-</button>
+                            <button className="font-bold text-2xl  p-2 w-[50px]" onClick={()=>dispatch(cartActions.addtocart(item))}>+</button>
+                        
                         </div>
 
 
@@ -58,4 +62,4 @@ function menu() {
   )
 }
 
-export default menu
+export default Menu
