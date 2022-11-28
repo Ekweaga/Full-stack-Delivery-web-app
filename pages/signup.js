@@ -64,7 +64,7 @@ function Signup() {
       </Head>
      <div className="h-screen flex items-center justify-center">
 
-<div className="flex items-center justify-center flex-col">
+<div className="flex items-center justify-center flex-col gap-[20px]">
 <Image src="/Logo.png" alt="logo" width={200} height={50}/>
 {error?(<div className='flex items-center justify-center text-red-600 border border-red-600  w-[300px] p-2 mt-[30px]'><p>{error}</p></div>):null}
                     {success?(<div className=" flex items-center justify-center text-green-600 border border-green-600  w-[300px] mt-[30px] p-2"><p>{success}</p></div>):null}
@@ -77,6 +77,8 @@ function Signup() {
     <div className="mt-[10px]"><p>Already have an account ? <Link href="/login" className="text-yellow-200">Log In</Link></p></div>
     <div><button  className="border-2 border-yellow-200 bg-yellow-200 mt-[20px] focus:outline-none w-[300px] p-2">Sign Up</button></div>
   </form>
+
+  <div><p><Link href="/">Go back home</Link></p></div>
 </div>
 
 </div>

@@ -1,6 +1,6 @@
 
 import '../styles/globals.css'
-import Layout from './Components/layout'
+import Layout from './Components/Layout'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import {persistor} from "../Redux/store"

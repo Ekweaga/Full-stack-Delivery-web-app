@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Head from 'next/head'
-import Link from "next/Link"
+import Link from "next/link"
 import { signInWithEmailAndPassword} from 'firebase/auth';
 import { auth } from '../Firebase/firbase';
 
@@ -48,7 +48,7 @@ function Login() {
       </Head>
     <div className="h-screen flex items-center justify-center">
 
-      <div className="flex items-center justify-center flex-col">
+      <div className="flex items-center justify-center flex-col gap-[20px]">
       {error?(<div className='flex items-center justify-center text-red-600 border border-red-600  w-[300px] p-2'><p>{error}</p></div>):null}
                     {success?(<div className="text-green-300 flex items-center justify-center p-2"><p>{success}</p></div>):null}
         <form className="flex items-center justify-center flex-col" onSubmit={login}>
@@ -60,6 +60,8 @@ function Login() {
           <div className="mt-[10px]"><p>Dont have an account ? <Link href="/signup" className="text-yellow-200">Sign Up</Link></p></div>
           <div><button  className="border-2 border-yellow-200 bg-yellow-200 mt-[20px] focus:outline-none w-[300px] p-2">Log in</button></div>
         </form>
+
+        <div><p><Link href="/">Go back home</Link></p></div>
       </div>
 
     </div>

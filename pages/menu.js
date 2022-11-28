@@ -5,6 +5,9 @@ import {DataItem} from "../data.js"
 import { connect } from 'react-redux';
 import {useDispatch} from 'react-redux'
 import { cartActions } from '../Redux/store/cartslice';
+import Image from "next/image"
+import Navbar from './Components/Navbar.jsx';
+import Footer from './Components/Footer.jsx';
 
 function Menu() {
   const dispatch = useDispatch()
@@ -16,7 +19,7 @@ function Menu() {
     <link rel="icon" href="/Photo.png" />
   </Head>
 
-
+<Navbar/>
   <header className="grid grid-cols-2 items-center h-[100vh] ">
     <div className='header-content'>
         
@@ -26,7 +29,8 @@ function Menu() {
             <button className="flex items-center justify-center gap-[20px] bg-yellow-200 w-[200px] p-2 mt-[30px]" >View Menu <AiOutlineArrowRight/></button>
         </div>
     </div>
-    <img src="/f13.jpeg" className='header-img w-[380px] rounded-full align-center'/>
+    <div>
+    <Image width={500} height={500} alt="image" src="/f13.jpeg" className='header-img rounded-full align-center'/></div>
     </header>
 
     <div className="MenuContainer grid grid-cols-2 md:grid-cols-5 gap-[25px]">
@@ -35,7 +39,7 @@ function Menu() {
                 return (
                     <div key={item.id} className="MenuContent flex flex-col items-center justify-center">
                         <div className='flex flex-col items-center justify-center'>
-                        <img src={item.image} className='header-img w-[100px] h-[100px] rounded-full align-center'/>
+                        <Image  width={150} height={150} alt="image" src={item.image} className='header-img w-[100px] h-[100px] rounded-full align-center'/>
                         <div className="flex flex-col items-center justify-center">
                         <span className="font-bold">{item.name}</span>
                         <span className='text-[#FFE145] font-bold'>#{item.price}</span></div>
@@ -57,6 +61,9 @@ function Menu() {
         }
 
     </div>
+
+
+    <Footer/>
       
     </>
   )

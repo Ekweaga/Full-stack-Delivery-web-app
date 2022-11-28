@@ -1,4 +1,7 @@
 import React from 'react'
+import Image from "next/image"
+
+
 
 function Footer() {
   return (
@@ -7,9 +10,9 @@ function Footer() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-[30px]  w-[80%] mx-auto"> 
         
         <div>
-        <img src="/Logo1.png"/>
+        <Image src="/Logo1.png"  width={150} height={30} alt="logo"/>
 
-<div> <img src="/Group 32.png" className="mt-[40px]" alt="Group 32"/></div>
+<div> <Image src="/Group 32.png" className="mt-[40px]" alt="Group32" width={150} height={30}/></div>
         </div>
 
         <div className="flex flex-col justify-center">
@@ -44,7 +47,7 @@ function Footer() {
 
         
       </div>
-      <div className="p-5"> <img src="/Group 23.png" className="mt-[40px]"/></div>
+      <div className="p-5"> <Image alt="logo" src="/Group 23.png" className="mt-[40px]"  width={1300} height={50}/></div>
     </footer>
     
     </>

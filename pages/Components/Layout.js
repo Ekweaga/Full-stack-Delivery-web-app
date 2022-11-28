@@ -7,9 +7,9 @@ function Layout({children}) {
   return (
     <>
    <AuthProvider>
-    <Navbar/>
+   
     {children}
-    <Footer/>
+  
     </AuthProvider>
     </>
   )
